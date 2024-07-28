@@ -6,7 +6,7 @@ import CommentList from "./CommentList";
 function PostList(){
     const [posts, setPosts] = useState({});
     const fetchPosts = async () => {
-        const res = await axios.get('http://localhost:4002/posts');
+        const res = await axios.get('http://localhost:4002/posts').catch((error) => console.log(error));;
         console.log(res);
         setPosts(res.data);
     }

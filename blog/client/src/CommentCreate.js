@@ -6,7 +6,7 @@ function CommentCreate({postId}){
         e.preventDefault();
         await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
             content
-        });
+        }).catch((error) => console.log(error));;
         setContent('');
     }
     return (

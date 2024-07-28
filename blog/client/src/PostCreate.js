@@ -8,7 +8,7 @@ function PostCreate(){
 
         await axios.post('http://localhost:4000/posts', {
             title
-        });
+        }).catch((error) => console.log(error));;
         setTitle('');
     };
     return (

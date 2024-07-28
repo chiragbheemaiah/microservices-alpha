@@ -7,9 +7,15 @@ app.use(bodyParser.json());
 
 app.post('/events', (req, res) => {
     const event = req.body;
-    axios.post('http://localhost:4000/events', event).catch(() => console.log('Error caught!'));
-    axios.post('http://localhost:4001/events', event).catch(() => console.log('Error caught!'));
-    axios.post('http://localhost:4002/events', event).catch(() => console.log('Error caught!'));
+    // post service
+    axios.post('http://localhost:4000/events', event).catch((error) => console.log(error));
+    // comments service
+    axios.post('http://localhost:4001/events', event).catch((error) => console.log(error));
+    // query service
+    axios.post('http://localhost:4002/events', event).catch((error) => console.log(error));
+    // moderation service
+    axios.post('http://localhost:4003/events', event).catch((error) => console.log(error));
+
 
     res.send( {status: 'OK'} );
 });
