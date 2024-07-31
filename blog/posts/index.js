@@ -22,7 +22,7 @@ app.post('/posts', async (req, res) => {
     };
     const event = {type: 'PostCreated', data: {id, title}}
     // emitting events to the event bus
-    await axios.post('http://localhost:4005/events', event).catch((error) => {console.log(error)});
+    await axios.post('http://event-bus-srv:4005/events', event).catch((error) => {console.log(error)});
     res.status(201).send(posts[id]);
 });
 
@@ -32,5 +32,6 @@ app.post('/events', (req, res) => {
 });
 
 app.listen(4000, () => {
-    console.log('Listening on port 4000...')
+    console.log('v2');
+    console.log('Listening on port 4000...');
 })
