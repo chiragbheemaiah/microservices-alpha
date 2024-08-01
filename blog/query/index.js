@@ -40,10 +40,17 @@ app.post('/events', (req, res) => {
 app.listen(4002, async () => {
     console.log('Listening on port 4002');
     // Run only on first boot
-    const res = await axios.get('http://event-bus-srv:4005/events').catch((error) => console.log(error));
-    console.log(res);
-    for(let event of res.data){
-        console.log('Processing event: ', event.type);
-        handleEvent(event.type, event.data);
-    }
+    // try {
+    //     const res = await axios.get('http://event-bus-srv:4005/events');
+    //     if (res && res.data) {
+    //         for (let event of res.data) {
+    //             console.log('Processing event:', event.type);
+    //             handleEvent(event.type, event.data);
+    //         }
+    //     } else {
+    //         console.log('No events found.');
+    //     }
+    // } catch (error) {
+    //     console.error('Error fetching events:', error);
+    // }
 });
